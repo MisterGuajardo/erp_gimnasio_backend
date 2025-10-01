@@ -1,98 +1,94 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# ERP para Gimnasios (erp_gimnasio)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Un sistema ERP (Enterprise Resource Planning) robusto y escalable, diseñado inicialmente para la lógica de negocio de gimnasios, pero con la flexibilidad para ser adaptado a cualquier negocio que requiera gestión de ventas, asistencias e inventario.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Descripción
 
-## Description
+`erp_gimnasio` es un proyecto backend construido con NestJS que se enfoca en resolver las necesidades operativas clave de los gimnasios modernos. La arquitectura del sistema está diseñada para ser altamente escalable y mantenible, permitiendo un crecimiento sostenible y la fácil adición de nuevas funcionalidades.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+El objetivo principal es ofrecer una solución centralizada que no solo optimice la gestión diaria, sino que también proporcione insights valiosos a través de un seguimiento detallado de la operación.
 
-## Project setup
+## ✨ Características Principales
 
-```bash
-$ npm install
-```
+* **📈 Gestión de Ventas:** Registro y seguimiento de transacciones, membresías, y venta de productos.
+* **✅ Control de Asistencias:** Monitoreo en tiempo real de la asistencia de los miembros, permitiendo un control de acceso eficiente.
+* **📦 Seguimiento de Inventario:** Administración del stock de productos (bebidas, suplementos, mercancía), con alertas y reportes.
+* **🧩 Modular y Extensible:** Diseñado para ser fácilmente adaptable a otros modelos de negocio.
 
-## Compile and run the project
+## 🏛️ Filosofía y Arquitectura
 
-```bash
-# development
-$ npm run start
+### Arquitectura Orientada al Dominio (DDD)
+Para garantizar la escalabilidad y mantenibilidad a largo plazo, el proyecto se desarrolla siguiendo los principios de **Domain-Driven Design (DDD)**. Esta elección arquitectónica permite:
+* **Aislar la lógica de negocio compleja** en un dominio central.
+* **Alinear el código con el lenguaje del negocio** (Lenguaje Ubicuo).
+* **Facilitar la evolución del software** a medida que los requerimientos del negocio cambian.
 
-# watch mode
-$ npm run start:dev
+### Base de Datos: Google Firestore
+Se eligió **Firestore** como la base de datos NoSQL por varias razones estratégicas:
+* **Facilidad de uso y Escalabilidad Serverless:** Firestore escala automáticamente para satisfacer la demanda sin necesidad de gestionar servidores.
+* **Flexibilidad del Modelo de Datos:** Su modelo de documentos se adapta bien a la naturaleza evolutiva de los datos de un negocio.
+* **Ecosistema de Google Cloud:** Permite aprovechar herramientas integradas como dashboards en la consola de Firebase/Google Cloud para monitorear el uso, analizar peticiones y tener un control granular sobre los costos operativos.
 
-# production mode
-$ npm run start:prod
-```
+## 🛠️ Tech Stack
 
-## Run tests
+* **Backend:** [NestJS](https://nestjs.com/)
+* **Base de Datos:** [Google Firestore](https://firebase.google.com/docs/firestore)
+* **Lenguaje:** [TypeScript](https://www.typescriptlang.org/)
+* **Validación de Datos:** [class-validator](https://github.com/typestack/class-validator), [class-transformer](https://github.com/typestack/class-transformer)
+* **Seguridad:** [Helmet](https://helmetjs.github.io/)
+* **Documentación de API:** [Swagger (OpenAPI)](https://www.swagger.io/)
 
-```bash
-# unit tests
-$ npm run test
+## 🚀 Puesta en Marcha
 
-# e2e tests
-$ npm run test:e2e
+Sigue estos pasos para levantar el proyecto en tu entorno local.
 
-# test coverage
-$ npm run test:cov
-```
+### Prerrequisitos
 
-## Deployment
+* Node.js (v18 o superior)
+* npm, yarn, o pnpm
+* Tener un proyecto de Firebase creado y las credenciales de servicio (archivo JSON).
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+### Instalación
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+1.  **Clonar el repositorio:**
+    ```bash
+    git clone [https://github.com/tu-usuario/erp_gimnasio.git](https://github.com/tu-usuario/erp_gimnasio.git)
+    cd erp_gimnasio
+    ```
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+2.  **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+3.  **Configurar variables de entorno:**
+    Crea un archivo `.env` en la raíz del proyecto. Puedes copiar el archivo de ejemplo `.env.example` (si lo tienes) o usar esta plantilla. Rellena los valores con tus credenciales de Firebase.
 
-## Resources
+    ```env
+    # .env
+    # Puerto de la aplicación
+    PORT=3000
 
-Check out a few resources that may come in handy when working with NestJS:
+    # Credenciales de Firebase (obtenidas del archivo JSON de tu cuenta de servicio)
+    FIREBASE_PROJECT_ID=tu-proyecto-id
+    FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@xxxxx.iam.gserviceaccount.com
+    FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nxxxxxxxxxx\n-----END PRIVATE KEY-----\n"
+    ```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+### Ejecución
 
-## Support
+1.  **Iniciar en modo de desarrollo:**
+    ```bash
+    npm run start:dev
+    ```
+2.  El servidor se iniciará en el puerto especificado en tu archivo `.env` (por defecto, 3000).
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📄 Documentación de la API
 
-## Stay in touch
+La documentación de la API se genera automáticamente con Swagger. Una vez que la aplicación esté corriendo, puedes acceder a ella en la siguiente ruta para ver y probar todos los endpoints disponibles:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+[http://localhost:3000/api-docs](http://localhost:3000/api-docs)
 
-## License
+## ⚖️ Licencia
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Este proyecto se distribuye bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.

@@ -12,6 +12,9 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 
+# Credenciales de servicios
+*.json
+
 # OS
 .DS_Store
 
