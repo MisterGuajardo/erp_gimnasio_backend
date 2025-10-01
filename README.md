@@ -29,6 +29,10 @@ Se eligió **Firestore** como la base de datos NoSQL por varias razones estraté
 * **Flexibilidad del Modelo de Datos:** Su modelo de documentos se adapta bien a la naturaleza evolutiva de los datos de un negocio.
 * **Ecosistema de Google Cloud:** Permite aprovechar herramientas integradas como dashboards en la consola de Firebase/Google Cloud para monitorear el uso, analizar peticiones y tener un control granular sobre los costos operativos.
 
+Para una descripción detallada de la arquitectura, los contextos delimitados y el **Lenguaje Ubicuo** del proyecto, por favor consulta la carpeta de documentación:
+
+* **[Ver Documentación de Arquitectura](./docs/01-ubiquitous-language.md)**
+
 ## 🛠️ Tech Stack
 
 * **Backend:** [NestJS](https://nestjs.com/)
