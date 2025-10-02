@@ -3,6 +3,7 @@ import { Firestore, DocumentData } from 'firebase-admin/firestore';
 import { FIRESTORE_PROVIDER } from 'src/firebase/firebase.module';
 import { Plan } from 'src/memberships/domain/entities/plan.entity';
 import { PlanRepository } from 'src/memberships/domain/repositories/plan.repository';
+import { UsagePolicy } from 'src/memberships/domain/value-objects/usage-policy.vo';
 
 @Injectable()
 export class FirestorePlanRepository extends PlanRepository {
@@ -29,6 +30,7 @@ export class FirestorePlanRepository extends PlanRepository {
             price: plan.getPrice(),
             durationValue: plan.getDurationValue(),
             durationUnit: plan.getDurationUnit(),
+            usagePolicy: plan.getUsagePolicy().toPrimitives(),
             isActive: plan.getIsActive(),
         };
     }
@@ -37,6 +39,13 @@ export class FirestorePlanRepository extends PlanRepository {
      * Convierte datos crudos de Firestore a una entidad Plan.
      */
     private toDomain(data: DocumentData): Plan {
+        let usagePolicy: UsagePolicy;
+        if (data.usagePolicy.type === 'unlimited') {
+            usagePolicy = UsagePolicy.unlimited();
+        } else {
+            usagePolicy = UsagePolicy.limitedByWeek(data.usagePolicy.usesPerWeek);
+        }
+
         return Plan.create({
             id: data.id,
             name: data.name,
@@ -44,6 +53,7 @@ export class FirestorePlanRepository extends PlanRepository {
             price: data.price,
             durationValue: data.durationValue,
             durationUnit: data.durationUnit,
+            usagePolicy: usagePolicy,
             isActive: data.isActive,
         });
     }

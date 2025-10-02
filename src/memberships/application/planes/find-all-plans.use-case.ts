@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { Plan } from '../domain/entities/plan.entity';
-import { PlanRepository } from '../domain/repositories/plan.repository';
-import { PlanResponseDto } from '../infrastructure/controllers/dtos/plan-response.dto';
+import { Plan } from '../../domain/entities/plan.entity';
+import { PlanRepository } from '../../domain/repositories/plan.repository';
+import { PlanResponseDto } from '../../infrastructure/controllers/dtos/planes/plan-response.dto';
 
 @Injectable()
 export class FindAllPlansUseCase {

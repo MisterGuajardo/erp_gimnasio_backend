@@ -4,6 +4,7 @@ import {
     InvalidPlanNameException,
     InvalidPlanPriceException
 } from '../exceptions/plan.exceptions';
+import { UsagePolicy } from '../value-objects/usage-policy.vo';
 
 export type PlanDurationUnit = 'days' | 'months' | 'years';
 
@@ -14,6 +15,7 @@ export interface PlanProps {
     price: number;
     durationValue: number;
     durationUnit: PlanDurationUnit;
+    usagePolicy: UsagePolicy;
     isActive: boolean;
 }
 
@@ -24,6 +26,7 @@ export class Plan {
     private price: number;
     private durationValue: number;
     private durationUnit: PlanDurationUnit;
+    private usagePolicy: UsagePolicy;
     private isActive: boolean;
 
     private constructor(props: PlanProps) {
@@ -34,6 +37,7 @@ export class Plan {
         this.durationValue = props.durationValue;
         this.durationUnit = props.durationUnit;
         this.isActive = props.isActive;
+        this.usagePolicy = props.usagePolicy;
 
         this.validate();
     }
@@ -48,6 +52,7 @@ export class Plan {
     getDurationValue(): number { return this.durationValue; }
     getDurationUnit(): PlanDurationUnit { return this.durationUnit; }
     getIsActive(): boolean { return this.isActive; }
+    getUsagePolicy(): UsagePolicy { return this.usagePolicy; }
 
     public deactivate(): void { this.isActive = false; }
     public activate(): void { this.isActive = true; }

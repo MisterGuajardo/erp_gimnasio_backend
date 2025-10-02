@@ -1,7 +1,7 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { PlanRepository } from '../domain/repositories/plan.repository';
-import { PlanDurationUnit } from '../domain/entities/plan.entity';
-import { PlanNotFoundException } from '../domain/exceptions/plan.exceptions';
+import { PlanRepository } from '../../domain/repositories/plan.repository';
+import { PlanDurationUnit } from '../../domain/entities/plan.entity';
+import { PlanNotFoundException } from '../../domain/exceptions/plan.exceptions';
 
 // Opcional: crea PlanNotFoundException en plan.exceptions.ts
 // export class PlanNotFoundException extends DomainException { ... }

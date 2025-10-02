@@ -7,6 +7,7 @@ import {
     InvalidPlanPriceException,
     PlanNotFoundException
 } from 'src/memberships/domain/exceptions/plan.exceptions';
+import { InvalidCommandInputException } from '../application/exceptions/application.exceptions';
 
 @Catch(DomainException) // Atrapa todas las excepciones que hereden de DomainException
 export class DomainExceptionFilter implements ExceptionFilter {
@@ -29,10 +30,9 @@ export class DomainExceptionFilter implements ExceptionFilter {
             status = 404; // Not Found
         }
 
-        // Podrías añadir más mapeos aquí:
-        // if (exception instanceof MemberNotFoundException) {
-        //   status = 404; // Not Found
-        // }
+        else if (exception instanceof InvalidCommandInputException) {
+            status = 400;
+        }
 
         response
             .status(status)

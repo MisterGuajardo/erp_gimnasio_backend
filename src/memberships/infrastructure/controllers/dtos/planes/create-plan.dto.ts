@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsString, IsNotEmpty, IsNumber, Min, IsIn } from 'class-validator';
+import { IsString, IsNotEmpty, IsNumber, Min, IsIn, ValidateNested } from 'class-validator';
 import { PlanDurationUnit } from 'src/memberships/domain/entities/plan.entity';
+import { UsagePolicyDto } from './usage-policy.dto';
+import { Type } from 'class-transformer';
 
 export class CreatePlanDto {
     @ApiProperty({
@@ -42,4 +44,13 @@ export class CreatePlanDto {
     })
     @IsIn(['days', 'months', 'years'])
     durationUnit: PlanDurationUnit;
+
+    @ApiProperty({
+        description: 'La política de uso que define las restricciones del plan.',
+        type: UsagePolicyDto,
+    })
+    @ValidateNested()
+    @Type(() => UsagePolicyDto)
+    @IsNotEmpty()
+    usagePolicy: UsagePolicyDto;
 }

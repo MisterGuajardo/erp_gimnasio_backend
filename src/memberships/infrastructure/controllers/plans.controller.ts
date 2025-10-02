@@ -1,13 +1,13 @@
 import { Controller, Post, Body, HttpCode, HttpStatus, Patch, Param, Delete, Get } from '@nestjs/common';
-import { CreatePlanUseCase } from 'src/memberships/application/create-plan.use-case';
-import { CreatePlanDto } from './dtos/create-plan.dto';
-import { UpdatePlanDto } from './dtos/update-plan.dto';
-import { UpdatePlanUseCase } from 'src/memberships/application/update-plan.use-case';
-import { DeactivatePlanUseCase } from 'src/memberships/application/deactivate-plan.use-case';
-import { ActivatePlanUseCase } from 'src/memberships/application/activate-plan.use-case';
-import { FindAllPlansUseCase } from 'src/memberships/application/find-all-plans.use-case';
-import { FindOnePlanUseCase } from 'src/memberships/application/find-one-plan.use-case';
-import { PlanResponseDto } from './dtos/plan-response.dto';
+import { CreatePlanUseCase } from 'src/memberships/application/planes/create-plan.use-case';
+import { CreatePlanDto } from './dtos/planes/create-plan.dto';
+import { UpdatePlanDto } from './dtos/planes/update-plan.dto';
+import { UpdatePlanUseCase } from 'src/memberships/application/planes/update-plan.use-case';
+import { DeactivatePlanUseCase } from 'src/memberships/application/planes/deactivate-plan.use-case';
+import { ActivatePlanUseCase } from 'src/memberships/application/planes/activate-plan.use-case';
+import { FindAllPlansUseCase } from 'src/memberships/application/planes/find-all-plans.use-case';
+import { FindOnePlanUseCase } from 'src/memberships/application/planes/find-one-plan.use-case';
+import { PlanResponseDto } from './dtos/planes/plan-response.dto';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam } from '@nestjs/swagger';
 
 @ApiTags('Plans')

@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { PlanRepository } from '../domain/repositories/plan.repository';
-import { PlanNotFoundException } from '../domain/exceptions/plan.exceptions';
+import { PlanRepository } from '../../domain/repositories/plan.repository';
+import { PlanNotFoundException } from '../../domain/exceptions/plan.exceptions';
 
 @Injectable()
 export class ActivatePlanUseCase {
