@@ -45,6 +45,10 @@ export class Membership {
         });
     }
 
+    public static fromPrimitives(props: MembershipProps): Membership {
+        return new Membership(props);
+    }
+
     // Getters
     getMemberId(): string { return this.memberId; }
     getPlanId(): string { return this.planId; }

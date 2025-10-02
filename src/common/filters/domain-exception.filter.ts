@@ -7,7 +7,7 @@ import {
     InvalidPlanPriceException,
     PlanNotFoundException
 } from 'src/memberships/domain/exceptions/plan.exceptions';
-import { InvalidCommandInputException } from '../application/exceptions/application.exceptions';
+import { InvalidCommandInputException, TransactionFailedException } from '../application/exceptions/application.exceptions';
 
 @Catch(DomainException) // Atrapa todas las excepciones que hereden de DomainException
 export class DomainExceptionFilter implements ExceptionFilter {
@@ -34,6 +34,8 @@ export class DomainExceptionFilter implements ExceptionFilter {
             status = 400;
         }
 
+        else if (exception instanceof TransactionFailedException) status = 500;
+        
         response
             .status(status)
             .json({

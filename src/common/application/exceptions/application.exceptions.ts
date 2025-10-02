@@ -13,3 +13,9 @@ export class InvalidCommandInputException extends ApplicationException {
         super(message);
     }
 }
+
+export class TransactionFailedException extends ApplicationException {
+    constructor(message: string = "La transacción falló y los cambios han sido revertidos.") {
+        super(message);
+    }
+}

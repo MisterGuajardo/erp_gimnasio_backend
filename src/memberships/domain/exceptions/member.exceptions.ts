@@ -17,3 +17,9 @@ export class MemberEmailAlreadyExistsException extends DomainException {
         super(message);
     }
 }
+
+export class MemberNotFoundException extends DomainException {
+    constructor(message: string = "El miembro especificado no fue encontrado.") {
+        super(message);
+    }
+}

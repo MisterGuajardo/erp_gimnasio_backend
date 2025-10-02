@@ -11,6 +11,12 @@ import { FindAllPlansUseCase } from './application/planes/find-all-plans.use-cas
 import { FindOnePlanUseCase } from './application/planes/find-one-plan.use-case';
 import { MemberRepository } from './domain/repositories/member.repository';
 import { FirestoreMemberRepository } from './infrastructure/persistence/firestore-member.repository';
+import { RegisterMemberUseCase } from './application/miembros/register-member.use-case';
+import { UpdateMemberProfileUseCase } from './application/miembros/update-member-profile.use-case';
+import { FindMemberByIdUseCase } from './application/miembros/find-member-by-id.use-case';
+import { FindAllMembersUseCase } from './application/miembros/find-all-members.use-case';
+import { DeactivateMemberUseCase } from './application/miembros/deactivate-member.use-case';
+import { ActivateMemberUseCase } from './application/miembros/activate-member.use-case';
 
 @Module({
     imports: [
@@ -32,6 +38,12 @@ import { FirestoreMemberRepository } from './infrastructure/persistence/firestor
         ActivatePlanUseCase,
         FindAllPlansUseCase,
         FindOnePlanUseCase,
+        RegisterMemberUseCase,
+        UpdateMemberProfileUseCase,
+        FindMemberByIdUseCase,
+        FindAllMembersUseCase,
+        DeactivateMemberUseCase,
+        ActivateMemberUseCase
     ],
 })
 export class MembershipsModule { }
